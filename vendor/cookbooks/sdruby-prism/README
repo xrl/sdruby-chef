@@ -1,0 +1,41 @@
+Getting basic files in place
+============================
+
+    gem install berkshelf --no-rdoc --no-ri
+
+    berks cookbook sdruby-prism
+
+Grab Vagrant
+============
+
+    Get vagrant from http://vagrantup.com/
+
+    Get virtualbox from https://www.virtualbox.org/
+
+Configure Vagrant
+=================
+
+    Browsed http://cloud-images.ubuntu.com/vagrant/ for images
+
+    Put that in the Vagrant file, give you box a good name. Vagrant will download the image for you.
+
+    vagrant plugin install vagrant-berkshelf
+    vagrant plugin install vagrant-omnibus
+
+    Make sure Vagrant file says
+
+      config.omnibus.chef_version = "11.4.0"
+
+Provision Your Test Box
+=======================
+
+    vagrant up
+
+ProTips
+=======
+
+Check your PPA priorities using ```apt-cache policy $FOO```
+
+To run chef inside the vagrant image
+
+    sudo chef-solo -c /tmp/vagrant-chef-1/solo.rb -o sdruby-prism
